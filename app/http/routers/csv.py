@@ -6,6 +6,7 @@ from fastapi import Body, File, UploadFile
 
 from fastapi import APIRouter
 
+from app.http.controllers.get_columns_from_csv import get_columns_from_csv
 from app.http.models.publish_table_file import PublishTableFile
 from src.application.data_getter import get_columns
 from src.application.data_reader import read_csv
@@ -34,13 +35,13 @@ async def retrieve_csv_col_names(
     print(cont)
     tmp_name = 'tmp_csv.csv'
     base_path = "/Users/ennima/Devs/diana/demenuzador"
-    file = os.path.join(base_path, tmp_name)
-    with open(file, 'w', encoding='utf-8') as fil:
+    file_a = os.path.join(base_path, tmp_name)
+    with open(file_a, 'w', encoding='utf-8') as fil:
         fil.write(cont)
     del content
     del cont
 
-    r = read_csv(file)
+    r = read_csv(file_a)
     cols = get_columns(r)
 
     return {
