@@ -26,6 +26,17 @@ def get_rows(data: Iterable):
             yield clean_row(row)
 
 
+def get_head_rows(data: Iterable):
+    count = 0
+    res = []
+    for row in get_rows(data):
+        if count >= 4:
+            break
+        res.append(row)
+        count += 1
+    return res
+
+
 def get_row_idx(row: str, header: List[str]):
     i = 0
     for c in header:
