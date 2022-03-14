@@ -63,17 +63,6 @@ async def retrieve_csv_col_names(
         file: UploadFile = File(..., description="A file read as UploadFile")
 ):
     """Retrieve column names as a list of strings"""
-    # content = await file.read()
-    # cont = content.decode("utf-8")
-    #
-    # print(cont)
-    # tmp_name = 'tmp_csv.csv'
-    # base_path = "/Users/ennima/Devs/diana/demenuzador"
-    # file_a = os.path.join(base_path, tmp_name)
-    # with open(file_a, 'w', encoding='utf-8') as fil:
-    #     fil.write(cont)
-    # del content
-    # del cont
 
     tmp_path = save_upload_file_tmp(file)
 

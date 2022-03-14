@@ -1,6 +1,8 @@
 import os
 from typing import List
 
+from src.shared.file_read import traverse
+
 
 def read_csv_fake() -> List[list]:
     header = ['uno', 'dos', 'Tres', '4tro']
@@ -24,7 +26,8 @@ def read_csv(file: str) -> List[list]:
     if not os.path.exists(file):
         raise Exception("No existe el csv")
 
-    with open(file, "r", encoding="utf-8") as fil:
-        data = fil.readlines()
-        for line in data:
-            yield line.split(',')
+    # with open(file, "r", encoding="utf-8") as fil:
+    #     data = fil.readlines()
+    #     for line in data:
+    #         yield line.split(',')
+    return traverse(file)

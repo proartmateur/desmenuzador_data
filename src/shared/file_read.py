@@ -3,9 +3,9 @@ from typing import *
 
 
 def traverse(path):
-    with open(path, "r") as a_file:
+    with open(path, "r", encoding="utf-8") as a_file:
         for line in a_file:
-            yield line
+            yield line.split(',')
 
 
 def read_file(file: str):
