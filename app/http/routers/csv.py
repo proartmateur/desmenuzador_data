@@ -1,11 +1,5 @@
-# Python Standard Lib
-from typing import Optional, List
-
-# Pydantic
-from pydantic import BaseModel
-
 # FastApi
-from fastapi import FastAPI, Body, File, UploadFile
+from fastapi import Body, File, UploadFile
 
 from fastapi import APIRouter
 
