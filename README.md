@@ -15,3 +15,15 @@ Swagger
 
 ReDoc
 `{url}/redoc`
+
+## Tech Stack
+
+#### API REST
+FastAPI: https://fastapi.tiangolo.com/
+
+#### TDD
+PyTest: https://docs.pytest.org/en/6.2.x/getting-started.html
+
+## Authors
+Enrique Nieto Martínez github: @proartmateur
+Diana Ponce R github: @DianaPonceR
