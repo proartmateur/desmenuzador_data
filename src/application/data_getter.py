@@ -10,7 +10,7 @@ def clean_row(row: list) -> list:
     return res
 
 
-def get_columns(data: Iterable) -> list:
+def get_columns(data: Iterable) -> List[str]:
     count = 0
     res = []
     for row in data:

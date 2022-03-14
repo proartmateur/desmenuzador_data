@@ -1,9 +1,14 @@
 # FastApi
+import json
+import os
+
 from fastapi import Body, File, UploadFile
 
 from fastapi import APIRouter
 
 from app.http.models.publish_table_file import PublishTableFile
+from src.application.data_getter import get_columns
+from src.application.data_reader import read_csv
 
 router = APIRouter(
     prefix="/csv",
@@ -19,11 +24,28 @@ router = APIRouter(
 # 3 - Subscribe other apps to channel and listen the data stream
 
 @router.post('/columns/')
-def retrieve_csv_col_names(
+async def retrieve_csv_col_names(
         file: UploadFile = File(..., description="A file read as UploadFile")
 ):
     """Retrieve column names as a list of strings"""
-    return {"filename": file.filename}
+    content = await file.read()
+    cont = content.decode("utf-8")
+
+    print(cont)
+    tmp_name = 'tmp_csv.csv'
+    base_path = "/Users/ennima/Devs/diana/demenuzador"
+    file = os.path.join(base_path, tmp_name)
+    with open(file, 'w', encoding='utf-8') as fil:
+        fil.write(cont)
+    del content
+    del cont
+
+    r = read_csv(file)
+    cols = get_columns(r)
+
+    return {
+        "cols": cols
+    }
 
 
 @router.post('/publish/')
