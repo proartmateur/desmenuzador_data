@@ -18,6 +18,9 @@ ReDoc
 
 ## Tech Stack
 
+#### Programming Language
+Python 3.9
+
 #### API REST
 FastAPI: https://fastapi.tiangolo.com/
 
